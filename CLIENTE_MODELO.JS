@@ -1,9 +1,11 @@
-class ClienteModelo{
-    constructor(){
-        this.nombre =datoNombre;
-        this.Apellido = datoAellido;
-        this.Rol =datoRol;
+export default class ClienteModelo{
+    constructor(nombre, Apellido, Rol){
+        this.nombre =nombre;
+        this.Apellido = Apellido;
+        this.Rol =Rol;
     }
+}
+/*    
     Get_nombre(){
         return this.nombre;
     }
@@ -26,3 +28,4 @@ class ClienteModelo{
 
     }
 }
+    */

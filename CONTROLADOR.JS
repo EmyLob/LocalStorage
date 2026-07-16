@@ -1,4 +1,4 @@
-function hacer_bucle(){
+/*function hacer_bucle(){
 
     for(let i =0; i<10000; i++){
         console.log(i)
@@ -33,3 +33,40 @@ boton_enviar.addEventListener("click",()=>{
 
 
 });
+*/
+import ClienteModelo from "./CLIENTE_MODELO.JS";
+import Api_Modelo from "./API_MODELO.JS";
+
+const boton_registrar = document.getElementById("boton_registrar");
+boton_registrar.addEventListener("click", function(){
+    const nombre= document.querySelector("#nombre").value;
+
+    
+    const apellido= document.querySelector("#apellido").value;
+    const rol= document.querySelector("#rol").value;
+    
+    const cliente = new ClienteModelo(nombre, apellido, rol)
+    console.log(cliente)
+
+    const api = new Api_Modelo();
+
+    api.guardar_cliente("lista_cliente", cliente);
+
+    const resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = `
+    <p> Hola  ${cliente.nombre}</p>`;
+
+    const Invalido = document.getElementById("mensaje")
+    
+    if (nombre.length < 4){
+        
+        Invalido.innerHTML=`<p>INVALIDO!! El nombre debe tener mas de 3 caracteres </p>`
+    } else{
+
+        Invalido.innerHTML=`<P> </P>`
+    }
+});
+    
+
+
