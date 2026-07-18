@@ -4,6 +4,23 @@ export default class ClienteModelo{
         this.Apellido = Apellido;
         this.Rol =Rol;
     }
+
+
+
+    Validar(){
+
+        const Invalido =document.getElementById("mensaje")
+        if (this.nombre.length < 4){
+        
+            Invalido.innerHTML=`<p>INVALIDO!! El nombre debe tener mas de 3 caracteres </p>`;
+            return false;
+        } else{
+
+            Invalido.innerHTML=`<P> </P>`
+            return true;
+
+        }
+    }
 }
 /*    
     Get_nombre(){

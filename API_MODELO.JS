@@ -1,16 +1,20 @@
- export default class Api_Modelo{
+export default class Api_Modelo{
 
     guardar_cliente(lista_cliente, obj_cliente){
         const lista = JSON.parse(localStorage.getItem(lista_cliente)) || [];/* ternarias */
-        lista.push(obj_cliente);
-        localStorage.setItem(lista_cliente,JSON.stringify(lista));
+        
+        const duplicado= document.getElementById("duplicado")        
+        const doble = lista.some(cliente =>
+            cliente.nombre === obj_cliente.nombre && cliente.Apellido === obj_cliente.Apellido
+        );
 
-        const duplicado= document.getElementById("duplicado")
-        if (lista.includes(lista_cliente)){
-            duplicado.innerHTML=`<p> Usuario Duplicado</p>`
-            console.log("Duplicado")
+        if (doble){
+            duplicado.innerHTML = `<p>Usuario Duplicado</p>`;
+            console.log("Duplicado");
         } else{
-            duplicado.innerHTML=`<p> </p>`
+            lista.push(obj_cliente);
+            localStorage.setItem(lista_cliente, JSON.stringify(lista));
+            duplicado.innerHTML = `<p></p>`;
         }
     }
 

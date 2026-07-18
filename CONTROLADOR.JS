@@ -48,24 +48,18 @@ boton_registrar.addEventListener("click", function(){
     const cliente = new ClienteModelo(nombre, apellido, rol)
     console.log(cliente)
 
-    const api = new Api_Modelo();
+    const valido= cliente.Validar()
+    if(valido){
+        const api = new Api_Modelo();
 
-    api.guardar_cliente("lista_cliente", cliente);
+        api.guardar_cliente("lista_cliente", cliente);
 
-    const resultado = document.getElementById("resultado");
+        const resultado = document.getElementById("resultado");
 
-    resultado.innerHTML = `
-    <p> Hola  ${cliente.nombre}</p>`;
-
-    const Invalido = document.getElementById("mensaje")
+        resultado.innerHTML = `
+        <p> Hola  ${cliente.nombre}</p>`;
+}
     
-    if (nombre.length < 4){
-        
-        Invalido.innerHTML=`<p>INVALIDO!! El nombre debe tener mas de 3 caracteres </p>`
-    } else{
-
-        Invalido.innerHTML=`<P> </P>`
-    }
 });
     
 
