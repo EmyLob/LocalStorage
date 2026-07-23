@@ -34,8 +34,8 @@ boton_enviar.addEventListener("click",()=>{
 
 });
 */
-import ClienteModelo from "./CLIENTE_MODELO.JS";
-import Api_Modelo from "./API_MODELO.JS";
+import ClienteModelo from "./cliente_modelo.js";
+import Api_Modelo from "./api_modelo.js";
 
 const boton_registrar = document.getElementById("boton_registrar");
 boton_registrar.addEventListener("click", function(){
