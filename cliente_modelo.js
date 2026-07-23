@@ -11,15 +11,22 @@ export default class ClienteModelo{
 
         const Invalido =document.getElementById("mensaje")
         if (this.nombre.length < 4){
-        
-            Invalido.innerHTML=`<p>INVALIDO!! El nombre debe tener mas de 3 caracteres </p>`;
             return false;
         } else{
-
-            Invalido.innerHTML=`<P> </P>`
             return true;
 
         }
+    }
+    obtenerMensaje(){
+
+        if(this.nombre.length < 4){
+
+            return "Debe tener mas de 3 caracteres";
+
+        }
+
+        return "";
+
     }
 }
 /*    
