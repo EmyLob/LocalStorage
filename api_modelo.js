@@ -9,12 +9,11 @@ export default class Api_Modelo{
         );
 
         if (doble){
-            duplicado.innerHTML = `<p>Usuario Duplicado</p>`;
-            console.log("Duplicado");
+            return false;
         } else{
             lista.push(obj_cliente);
             localStorage.setItem(lista_cliente, JSON.stringify(lista));
-            duplicado.innerHTML = `<p></p>`;
+            return true;
         }
     }
 
