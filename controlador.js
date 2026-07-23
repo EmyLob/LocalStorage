@@ -48,17 +48,23 @@ boton_registrar.addEventListener("click", function(){
     const cliente = new ClienteModelo(nombre, apellido, rol)
     console.log(cliente)
 
-    const valido= cliente.Validar()
-    if(valido){
-        const api = new Api_Modelo();
+    const mensaje = document.getElementById("mensaje");
+    const duplicado = document.getElementById("duplicado");
 
-        api.guardar_cliente("lista_cliente", cliente);
+    if(cliente.Validar()){
+    mensaje.innerHTML = "";
+    const api = new Api_Modelo();
 
-        const resultado = document.getElementById("resultado");
+        if(api.guardar_cliente("lista_cliente", cliente)){
+            resultado.innerHTML = `<p>Hola ${cliente.nombre}</p>`;
+            duplicado.innerHTML = "";
+        }else{
+            duplicado.innerHTML = "<p>Usuario duplicado</p>";
+        }
 
-        resultado.innerHTML = `
-        <p> Hola  ${cliente.nombre}</p>`;
-}
+    }else{
+        mensaje.innerHTML = `<p>${cliente.obtenerMensaje()}</p>`;
+    }
     
 });
     
